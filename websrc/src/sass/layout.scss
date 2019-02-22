@@ -1,0 +1,24 @@
+html,
+body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.main-wrapper{
+
+
+    .main{
+        margin-top: 90px;
+        margin-bottom: 30px;
+    }
+
+}
+
+.flex-2-right-left{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+
