@@ -6,7 +6,7 @@
 * cd to directory
 * `npm install`
 * build for production : `npm run prod`
-* develope : `npm run watch`
+* develop : `npm run watch`
 
 ### Serve localy for development
 * install `https://github.com/zeit/serve`
