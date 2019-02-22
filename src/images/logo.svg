@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="34px" height="29px" viewBox="0 0 34 29" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>logo</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <radialGradient cx="50%" cy="0%" fx="50%" fy="0%" r="111.651278%" gradientTransform="translate(0.500000,0.000000),scale(1.000000,0.895646),rotate(90.000000),translate(-0.500000,-0.000000)" id="radialGradient-1">
+            <stop stop-color="#7574F9" offset="0%"></stop>
+            <stop stop-color="#409DD3" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Miner-Stats" transform="translate(-52.000000, -50.000000)">
+            <g id="logo">
+                <rect id="Rectangle" x="0" y="0" width="135" height="136"></rect>
+                <path d="M67.9461343,49 C74.5622011,49 84.4331261,68.6596989 81.178268,75.0732263 C77.9234099,81.4867537 58.2063844,81.9547857 54.7140005,75.0732263 C51.2216167,68.1916669 61.3300674,49 67.9461343,49 Z" id="Triangle" fill="url(#radialGradient-1)" transform="translate(67.909571, 64.530214) rotate(-270.000000) translate(-67.909571, -64.530214) "></path>
+                <text id="N" font-family="Cabin-Bold, Cabin" font-size="19" font-weight="bold" fill="#FFFFFF">
+                    <tspan x="66" y="77">N</tspan>
+                </text>
+                <circle id="Oval" fill="#6F79F5" cx="84" cy="76" r="2"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

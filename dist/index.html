@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>NoncerPro Miner API</title>
+        <link rel="stylesheet" type="text/css" href="app.css" >
+        <link rel="icon" href="images/favicon.png">
+    </head>
+    <body class="has-navbar-fixed-top">
+        <div class="main-wrapper" id="app">
+            
+            <!-- navigation -->
+            <nav class="navbar is-fixed-top is-white" role="navigation" aria-label="main navigation">
+                <div class="container">
+                    <div class="navbar-brand">
+                        <a class="navbar-item" href="#">
+                            <img src="images/logo.svg" class="logo"> 
+                            <h1 class="is-size-4 has-text-weight-bold has-super">NoncerPro<span class="superscript">API</span></h1>
+                        </a>
+                    </div>
+                
+                    <div id="navbarBasicExample" class="navbar-menu">
+                        <div class="navbar-start">
+                            
+                        </div>
+                
+                        <div class="navbar-end">
+                            <div class="navbar-item">
+                                <img src="images/nimiq.svg" alt="Nimiq" height="60">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- page contntes -->
+            <transition name="fade">
+                <div class="loading" v-if="loading">
+                    <div class="fulloverlay">
+                        <div class="sk-folding-cube">
+                            <div class="sk-cube1 sk-cube"></div>
+                            <div class="sk-cube2 sk-cube"></div>
+                            <div class="sk-cube4 sk-cube"></div>
+                            <div class="sk-cube3 sk-cube"></div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </transition>
+
+            <transition name="fade">
+                <div class="main" v-if="!connected">
+                    <div class="container">
+                        <div class="has-text-centered">
+                            <img  src="images/broken.png"> 
+                        </div>
+                        <div class="has-text-centered m-t-xl">
+                            <code>{{errorMessage}}</code>
+                            <h1 class="is-size-1 m-t-lg">Could not connect to the Miner API</h1>
+                            <p>Please make sure that NoncerPro Miner is up and running</p>
+                            
+                        </div>
+                    </div>
+                </div>
+            </transition>
+
+            <div class="main" v-if="connected">
+                <div class="container">
+                    
+                    <section class="m-t-xl">  
+                        <div class="columns is-6 is-variable">
+                            <div class="column">
+                                <single-stat type="hashrate" text="Hashrate" name="total_hashrate"></single-stat>
+                            </div>
+                            <div class="column">
+                                    <single-stat text="Submitted Shares" name="submitted_shares"></single-stat>
+                                </div>
+                        </div>
+                        <div class="columns is-6 is-variable m-t-lg">
+                                <div class="column">
+                                        <single-stat text="Active GPUs" name="active_GPUS"></single-stat>
+                                    </div>
+                            
+
+                            <div class="column">
+                                <single-stat text="Invalid Shares" name="invalid_shares"></single-stat>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="m-t-xl">
+                        <div class="flex-2-right-left">
+                            <h2 class="title is-5 m-b-none">Miner Wallet:</h2>
+                            <span class="tag is-normal has-text-weight-bold" v-bind:class="[isDevActive ? 'is-info' : 'is-success']" v-html="devMiningMessage"></span>
+                        </div>
+                        <div class="box m-t-md">{{vars.wallet}}</div>
+                    </section>
+
+                    <section class="m-t-lg">
+                        <div class="columns is-6 is-variable">
+                            <div class="column">
+                                <h2 class="is-size-6 has-text-weight-bold">Connected Pool:</h2>
+                                <div class="box m-t-md">{{vars.pool}}</div>
+                            </div>
+                            <div class="column">
+                                <h2 class="is-size-6 has-text-weight-bold">Device ID:</h2>
+                                <div class="box m-t-md">{{vars.device_id}}</div>
+                            </div>
+                            <div class="column">
+                                <h2 class="is-size-6 has-text-weight-bold">Device Name:</h2>
+                                <div class="box m-t-md">{{vars.device_name}}</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="m-t-xl">
+                        <h2 class="title is-5">Per GPU Stats:</h2>
+                        <div class="box m-b-md" v-for="(item, index) in vars.hashrates">
+                            <div class="flex-2-right-left">
+                                <span>GPU #{{index}}</span>
+                                <span class="hashrate is-size-6 has-text-link is-family-secondary has-text-weight-bold" v-html="humanHashRate(item)"></span>
+                            </div>
+                             
+                        </li>
+                    </section>
+
+                </div>
+            </div>
+
+            <div class="footer">
+                <div class="container">
+                    <hr>
+                    <div class="content has-text-centered">
+                        <p>
+                            <a target="_blank" href="https://github.com/NoncerPro/noncerpro-nimiq-cuda">NVIDIA Miner Docs </a> | 
+                            <a target="_blank" href="https://github.com/NoncerPro/noncerpro-nimiq-opencl">AMD Miner Docs</a> | 
+                            <a target="_blank" href="https://discord.gg/DWDnJBy">Discord Channel</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="app.js"></script>
+
+    </body>
+</html>

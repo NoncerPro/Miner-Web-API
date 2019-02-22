@@ -1,0 +1,30 @@
+.stat{
+    background: $white;
+    padding: 1.2rem;
+    color: $grey;
+    border-radius: 1rem;
+    position: relative;
+    box-shadow: 0 1px 40px 0 rgba(0,0,0,0.05);
+
+    :before{
+        content: "";
+        position: absolute;
+        top: -15px;
+        left: -10px;
+        width: 100px;
+        height: 70px;
+        background-image: url("images/peek.svg");
+
+        background-size: contain;
+        background-repeat: no-repeat;
+        z-index: -1;
+    }
+
+}
+
+.hashrate{
+    >span{
+        color:$grey-dark;
+    }
+}
+
