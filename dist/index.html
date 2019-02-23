@@ -71,20 +71,20 @@
                     <section class="m-t-xl">  
                         <div class="columns is-6 is-variable">
                             <div class="column">
-                                <single-stat type="hashrate" text="Hashrate" name="total_hashrate"></single-stat>
+                                <single-stat type="hashrate" text="Hashrate" name="totalHashrate"></single-stat>
                             </div>
                             <div class="column">
-                                    <single-stat text="Submitted Shares" name="submitted_shares"></single-stat>
+                                    <single-stat text="Submitted Shares" name="totalShares"></single-stat>
                                 </div>
                         </div>
                         <div class="columns is-6 is-variable m-t-lg">
                                 <div class="column">
-                                        <single-stat text="Active GPUs" name="active_GPUS"></single-stat>
+                                        <single-stat text="Active GPUs" name="activeGpus"></single-stat>
                                     </div>
                             
 
                             <div class="column">
-                                <single-stat text="Invalid Shares" name="invalid_shares"></single-stat>
+                                <single-stat text="Invalid Shares" name="invalidShares"></single-stat>
                             </div>
                         </div>
                     </section>
@@ -92,7 +92,7 @@
                     <section class="m-t-xl">
                         <div class="flex-2-right-left">
                             <h2 class="title is-5 m-b-none">Miner Wallet:</h2>
-                            <span class="tag is-normal has-text-weight-bold" v-bind:class="[isDevActive ? 'is-info' : 'is-success']" v-html="devMiningMessage"></span>
+                            <span class="tag is-normal has-text-weight-bold" v-bind:class="[vars.devMining ? 'is-info' : 'is-success']" v-html="devMiningMessage"></span>
                         </div>
                         <div class="box m-t-md">{{vars.wallet}}</div>
                     </section>
@@ -101,25 +101,25 @@
                         <div class="columns is-6 is-variable">
                             <div class="column">
                                 <h2 class="is-size-6 has-text-weight-bold">Connected Pool:</h2>
-                                <div class="box m-t-md">{{vars.pool}}</div>
+                                <div class="box m-t-md">{{vars.server}}</div>
                             </div>
                             <div class="column">
                                 <h2 class="is-size-6 has-text-weight-bold">Device ID:</h2>
-                                <div class="box m-t-md">{{vars.device_id}}</div>
+                                <div class="box m-t-md">{{vars.deviceId}}</div>
                             </div>
                             <div class="column">
                                 <h2 class="is-size-6 has-text-weight-bold">Device Name:</h2>
-                                <div class="box m-t-md">{{vars.device_name}}</div>
+                                <div class="box m-t-md">{{vars.deviceName}}</div>
                             </div>
                         </div>
                     </section>
 
                     <section class="m-t-xl">
                         <h2 class="title is-5">Per GPU Stats:</h2>
-                        <div class="box m-b-md" v-for="(item, index) in vars.hashrates">
+                        <div class="box m-b-md" v-for="(item, index) in vars.devices">
                             <div class="flex-2-right-left">
-                                <span>GPU #{{index}}</span>
-                                <span class="hashrate is-size-6 has-text-link is-family-secondary has-text-weight-bold" v-html="humanHashRate(item)"></span>
+                                <span>GPU #{{item.gpuId}}</span>
+                                <span class="hashrate is-size-6 has-text-link is-family-secondary has-text-weight-bold" v-html="humanHashRate(item.hashrate)"></span>
                             </div>
                              
                         </li>

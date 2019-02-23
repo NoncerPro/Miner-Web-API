@@ -40,16 +40,15 @@ const app = new Vue({
     data: {
         vars:{
             wallet: '...',
-            device_id : '...',
-            device_name: '...',
-            pool: '....',
-            hashrates : {},
-            dev_mining : 'disabled'
+            deviceId : '...',
+            deviceName: '...',
+            server: '....',
+            devices : [],
+            devMining : false
         },
         connected: true,
         loading: true,
         errorMessage: null,
-        isDevActive: false,
     },
     beforeCreate(){
         this.loading = true;
@@ -68,7 +67,7 @@ const app = new Vue({
             this.loading = true;
             await delayit(1500);
 
-            axios.get("/test.json")
+            axios.get("/api")
                 .then( response => {
                     this.loading = false;
                     this.connected = true;
@@ -77,10 +76,6 @@ const app = new Vue({
                     
                     this.vars = response.data;
                     
-                    if ( this.vars.dev_mining != "disabled")
-                    {
-                        this.isDevActive = true;
-                    }
                 })
                 .catch( error => {
                     this.loading = false;
@@ -93,7 +88,7 @@ const app = new Vue({
     computed: {
         // a computed getter
         devMiningMessage() {
-          if (this.isDevActive)
+          if (this.vars.devMining)
           {
               return "Dev Mining&nbsp;&nbsp;&nbsp;ON";
           }
